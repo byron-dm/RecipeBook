@@ -1,10 +1,10 @@
 # Recipe Book
 
-A Flutter multiplatform recipe browser
+A recipe browser for Windows, Android and iOS
 
 ## Getting Started
 
-This project demonstrates several features of a non trivial Flutter application.
+This project demonstrates several features of a non-trivial multiplatform Flutter application.
 
 Some of the packages and other resources used:
 
@@ -12,3 +12,4 @@ Some of the packages and other resources used:
 - [Status Alert for Flutter](https://pub.dev/packages/status_alert)
 - [Dio for networking tasks](https://pub.dev/packages/dio)
 - Localization
+- [Window management features for desktop platforms](https://pub.dev/packages/window_manager)

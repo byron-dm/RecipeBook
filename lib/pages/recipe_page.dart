@@ -5,7 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class RecipePage extends StatelessWidget {
   final Recipe recipe;
 
-  RecipePage({super.key, required this.recipe});
+  const RecipePage({super.key, required this.recipe});
 
   @override
   Widget build(BuildContext context) {
