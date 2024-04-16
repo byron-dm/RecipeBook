@@ -1,1 +1,1 @@
-const String API_BASE_URL = "https://dummyjson.com/";
+const String apiBaseUrl = "https://dummyjson.com/";

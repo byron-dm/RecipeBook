@@ -1,0 +1,26 @@
+{
+  "appTitle": "Recetario",
+  "loginPageTitle": "Iniciar sesión",
+  "loginPageDecorationUsername": "Usuario",
+  "loginPageDecorationPassword": "Contraseña",
+  "loginPageErrorUsername": "Ingrese un usuario",
+  "loginPageErrorPassword": "Ingrese una contraseña válida",
+  "loginPageStatusAlertTitle": "No se pudo iniciar sesión",
+  "loginPageStatusAlertSubtitle": "Por favor, intente nuevamente",
+  "loginPageButtonLogin": "Iniciar sesión",
+  "homePageError": "No se pudo cargar los datos",
+  "homePageDifficulty": "Dificultad",
+  "recipePagePrepTime": "Tiempo de preparación",
+  "recipePageMinutes": "minutos",
+  "recipePageCookTime": "Tiempo de cocción",
+  "recipePageReviews": "{count, plural, =0{sin reseñas} =1{1 reseña} other{{count} reseñas}}",
+  "@recipePageReviews": {
+    "description": "Reseñas",
+    "placeholders": {
+      "count": {
+        "type": "num",
+        "format": "compact"
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/recipe.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RecipePage extends StatelessWidget {
   final Recipe recipe;
@@ -13,7 +14,7 @@ class RecipePage extends StatelessWidget {
       appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colors.white60,
-          title: const Text("Recipe Book")),
+          title: Text(AppLocalizations.of(context)!.appTitle)),
       body: _buildUI(context),
     );
   }
@@ -59,11 +60,11 @@ class RecipePage extends StatelessWidget {
               style:
                   const TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
           Text(
-            "Prep time: ${recipe.prepTimeMinutes} minutes | Cook time: ${recipe.cookTimeMinutes} minutes",
+            "${AppLocalizations.of(context)!.recipePagePrepTime}: ${recipe.prepTimeMinutes} ${AppLocalizations.of(context)!.recipePageMinutes} | ${AppLocalizations.of(context)!.recipePageCookTime}: ${recipe.cookTimeMinutes} ${AppLocalizations.of(context)!.recipePageMinutes}",
             style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
           ),
           Text(
-            "${recipe.rating.toString()} ⭐ | ${recipe.reviewCount} reviews",
+            "${recipe.rating.toString()} ⭐ | ${AppLocalizations.of(context)!.recipePageReviews(recipe.reviewCount)}",
             style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
           ),
         ],

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_book/pages/recipe_page.dart';
 import 'package:recipe_book/services/data_service.dart';
-
-import '../models/recipe.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Receipt Book"),
+        title: Text(AppLocalizations.of(context)!.appTitle),
         centerTitle: true,
       ),
       body: _buildUI(),
@@ -45,12 +44,13 @@ class _HomePageState extends State<HomePage> {
         children: [
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5.0),
-              child:
-                  FilledButton(onPressed: () {
+              child: FilledButton(
+                  onPressed: () {
                     setState(() {
                       _mealTypeFilter = "snack";
                     });
-                  }, child: const Text("Snack"))),
+                  },
+                  child: const Text("Snack"))),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5.0),
               child: FilledButton(
@@ -58,23 +58,26 @@ class _HomePageState extends State<HomePage> {
                     setState(() {
                       _mealTypeFilter = "breakfast";
                     });
-                  }, child: const Text("Breakfast"))),
+                  },
+                  child: const Text("Breakfast"))),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5.0),
-              child:
-                  FilledButton(onPressed: () {
+              child: FilledButton(
+                  onPressed: () {
                     setState(() {
                       _mealTypeFilter = "lunch";
                     });
-                  }, child: const Text("Lunch"))),
+                  },
+                  child: const Text("Lunch"))),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5.0),
-              child:
-                  FilledButton(onPressed: () {
+              child: FilledButton(
+                  onPressed: () {
                     setState(() {
                       _mealTypeFilter = "dinner";
                     });
-                  }, child: const Text("Dinner")))
+                  },
+                  child: const Text("Dinner")))
         ],
       ),
     );
@@ -89,7 +92,8 @@ class _HomePageState extends State<HomePage> {
           return const Center(child: CircularProgressIndicator());
         }
         if (snapshot.hasError) {
-          return const Center(child: Text("Unable to load data"));
+          return Center(
+              child: Text(AppLocalizations.of(context)!.homePageError));
         }
         return ListView.builder(
             itemCount: snapshot.data!.length,
@@ -97,18 +101,18 @@ class _HomePageState extends State<HomePage> {
               var recipe = snapshot.data![index];
               return ListTile(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) {
-                        return RecipePage(
-                            recipe: recipe);
-                      }),
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return RecipePage(recipe: recipe);
+                    }),
                   );
                 },
                 contentPadding: const EdgeInsets.only(top: 20),
                 leading: Image.network(recipe.image),
                 isThreeLine: true,
-                subtitle:
-                    Text("${recipe.cuisine}\nDifficulty: ${recipe.difficulty}"),
+                subtitle: Text(
+                    "${recipe.cuisine}\n${AppLocalizations.of(context)!.homePageDifficulty}: ${recipe.difficulty}"),
                 title: Text(recipe.name),
                 trailing: Text("${recipe.rating} ⭐",
                     style: const TextStyle(fontSize: 15)),
