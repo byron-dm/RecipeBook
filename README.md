@@ -1,16 +1,13 @@
-# recipe_book
+# Recipe Book
 
-A recipe book application
+A Flutter multiplatform recipe browser
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project demonstrates several features of a non trivial Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Some of the packages and other resources used:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [DummyJson for recipes data](https://dummyjson.com/docs/recipes)
+- [Status Alert for Flutter](https://pub.dev/packages/status_alert)
+- [Dio for networking tasks](https://pub.dev/packages/dio)
