@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:recipe_book/injection_container.dart';
 import 'package:recipe_book/pages/home_page.dart';
 import 'package:recipe_book/pages/login_page.dart';
 import 'package:window_manager/window_manager.dart';
 import 'dart:io' show Platform;
 
 void main() async {
+  setup();
+
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
     WidgetsFlutterBinding.ensureInitialized();
     await windowManager.ensureInitialized();

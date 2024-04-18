@@ -1,18 +1,14 @@
 import 'package:recipe_book/models/recipe.dart';
+import 'package:recipe_book/services/definitions/data_service.dart';
+import 'package:recipe_book/services/definitions/http_service.dart';
 
-import 'http_service.dart';
+import '../../injection_container.dart';
 
-class DataService {
-  static final DataService _instance = DataService._internal();
+class DefaultDataService implements DataService {
 
-  final _httpService = HttpService();
+  final HttpService _httpService = getIt<HttpService>();
 
-  factory DataService() {
-    return _instance;
-  }
-
-  DataService._internal();
-
+  @override
   Future<List<Recipe>> getRecipes(String filter) async {
     String path = "recipes/";
 

@@ -13,3 +13,4 @@ Some of the packages and other resources used:
 - [Dio for networking tasks](https://pub.dev/packages/dio)
 - Localization
 - [Window management features for desktop platforms](https://pub.dev/packages/window_manager)
+- [GetIt for dependency injection](https://pub.dev/packages/get_it)

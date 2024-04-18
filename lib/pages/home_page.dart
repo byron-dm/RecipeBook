@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_book/pages/recipe_page.dart';
-import 'package:recipe_book/services/data_service.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:recipe_book/services/definitions/data_service.dart';
+
+import '../injection_container.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -86,7 +88,7 @@ class _HomePageState extends State<HomePage> {
   Widget _recipesList() {
     return Expanded(
         child: FutureBuilder(
-      future: DataService().getRecipes(_mealTypeFilter),
+      future: getIt<DataService>().getRecipes(_mealTypeFilter),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());

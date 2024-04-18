@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:recipe_book/services/auth_service.dart';
+import 'package:recipe_book/services/definitions/auth_service.dart';
 import 'package:status_alert/status_alert.dart';
+
+import 'package:recipe_book/injection_container.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -99,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
             onPressed: () async {
               if (_loginFormKey.currentState?.validate() ?? false) {
                 _loginFormKey.currentState?.save();
-                if (await AuthService().login(username!, password!)) {
+                if (await getIt<AuthService>().login(username!, password!)) {
                   if (!mounted) return;
                   Navigator.pushReplacementNamed(context, "/home");
                 } else {

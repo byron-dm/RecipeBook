@@ -1,20 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:recipe_book/constants.dart';
+import 'package:recipe_book/services/definitions/http_service.dart';
 
-class HttpService {
-
-  static final HttpService _instance = HttpService._internal();
+class DefaultHttpService implements HttpService {
 
   final _dio = Dio();
 
-  factory HttpService() {
-    return _instance;
-  }
-
-  HttpService._internal() {
-    setup(null);
-  }
-
+  @override
   Future<void> setup(String? bearerToken) async {
     final headers = {
       "Content-Type": "application/json"
@@ -35,9 +27,10 @@ class HttpService {
     _dio.options = options;
   }
 
-  Future<Response?> post(String path, Map data) async {
+  @override
+  Future<Response?> get(String path) async {
     try {
-      return await _dio.post(path, data: data);
+      return await _dio.get(path);
     } catch (exception) {
       print(exception);
     }
@@ -45,9 +38,10 @@ class HttpService {
     return null;
   }
 
-  Future<Response?> get(String path) async {
+  @override
+  Future<Response?> post(String path, Map data) async {
     try {
-      return await _dio.get(path);
+      return await _dio.post(path, data: data);
     } catch (exception) {
       print(exception);
     }

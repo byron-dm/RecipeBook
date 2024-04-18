@@ -1,22 +1,19 @@
-import '../models/user.dart';
-import 'http_service.dart';
+import 'package:recipe_book/services/definitions/auth_service.dart';
+import 'package:recipe_book/services/definitions/http_service.dart';
 
-class AuthService {
+import '../../injection_container.dart';
+import '../../models/user.dart';
 
-  static final AuthService _instance = AuthService._internal();
+class DefaultAuthService implements AuthService {
 
-  final _httpService = HttpService();
+  final _httpService = getIt<HttpService>();
 
   User? user;
 
-  factory AuthService() {
-    return _instance;
-  }
-
-  AuthService._internal();
-
+  @override
   Future<bool> login(String username, String password) async {
     try {
+      _httpService.setup(null);
       var response = await _httpService.post("auth/login", {
         "username": username,
         "password": password
@@ -24,7 +21,7 @@ class AuthService {
 
       if (response?.statusCode == 200 && response?.data != null) {
         user = User.fromJson(response!.data);
-        HttpService().setup(user!.token);
+        _httpService.setup(user!.token);
         return true;
       }
     } catch (exception) {
