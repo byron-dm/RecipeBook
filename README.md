@@ -14,3 +14,4 @@ Some of the packages and other resources used:
 - Localization
 - [Window management features for desktop platforms](https://pub.dev/packages/window_manager)
 - [GetIt for dependency injection](https://pub.dev/packages/get_it)
+- [Logger framework](https://pub.dev/packages/logger)

@@ -1,3 +1,4 @@
+import 'package:logger/logger.dart';
 import 'package:recipe_book/services/definitions/auth_service.dart';
 import 'package:recipe_book/services/definitions/http_service.dart';
 
@@ -7,6 +8,7 @@ import '../../models/user.dart';
 class DefaultAuthService implements AuthService {
 
   final _httpService = getIt<HttpService>();
+  final _logger = Logger();
 
   User? user;
 
@@ -25,7 +27,7 @@ class DefaultAuthService implements AuthService {
         return true;
       }
     } catch (exception) {
-      print(exception);
+      _logger.e(exception);
     }
 
     return false;

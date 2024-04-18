@@ -1,10 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:logger/logger.dart';
 import 'package:recipe_book/constants.dart';
 import 'package:recipe_book/services/definitions/http_service.dart';
 
 class DefaultHttpService implements HttpService {
 
   final _dio = Dio();
+  final _logger = Logger();
 
   @override
   Future<void> setup(String? bearerToken) async {
@@ -32,7 +34,7 @@ class DefaultHttpService implements HttpService {
     try {
       return await _dio.get(path);
     } catch (exception) {
-      print(exception);
+      _logger.e(exception);
     }
 
     return null;
@@ -43,7 +45,7 @@ class DefaultHttpService implements HttpService {
     try {
       return await _dio.post(path, data: data);
     } catch (exception) {
-      print(exception);
+      _logger.e(exception);
     }
 
     return null;
